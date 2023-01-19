@@ -7,7 +7,6 @@ const RegistrationPageContainer = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
   h1 {
@@ -19,56 +18,63 @@ const RegistrationPageContainer = styled.div`
     margin-bottom: 25px;
   }
 
-  input {
-    width: 330px;
-    height: 60px;
-    padding: 18px 15px;
-    margin-bottom: 13px;
-
-    color: #000000;
-    background-color: #ffffff;
-    border: none;
-    border-radius: 5px;
-
-    font-family: "Raleway", sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 23.5px;
-  }
-
-  button {
-    width: 330px;
-    height: 50px;
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 35px;
 
-    color: #ffffff;
-    background-color: #a328d6;
-    border: none;
-    border-radius: 5px;
+    input {
+      width: 330px;
+      height: 60px;
+      padding: 18px 15px;
+      margin-bottom: 13px;
 
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 23.5px;
+      color: #000000;
+      background-color: #ffffff;
+      border: none;
+      border-radius: 5px;
 
-    &:hover {
-      cursor: pointer;
+      font-family: "Raleway", sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23.5px;
     }
-  }
 
-  p {
-    color: #ffffff;
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 17.6px;
+    button {
+      width: 330px;
+      height: 50px;
+      align-items: center;
+      margin-bottom: 35px;
 
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-      opacity: 50%;
-      color: blue
+      color: #ffffff;
+      background-color: #a328d6;
+      border: none;
+      border-radius: 5px;
+
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 23.5px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    p {
+      color: #ffffff;
+      font-family: "Raleway", sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      line-height: 17.6px;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+        opacity: 50%;
+        color: blue;
+      }
     }
   }
 `;
