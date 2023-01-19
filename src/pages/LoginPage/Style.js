@@ -1,21 +1,9 @@
 import styled from "styled-components";
 
-export default function LoginPage() {
-  return (
-    <LoginPageContainer>
-      <h1>MyWallet</h1>
-      <input type="text" name="email" placeholder="E-mail" />
-      <input type="text" name="password" placeholder="Senha" />
-      <button>Entrar</button>
-      <p>Primeira vez? Cadastre-se!</p>
-    </LoginPageContainer>
-  );
-}
-
 const LoginPageContainer = styled.div`
   width: 100%;
   max-width: 400px;
-  margin: 40% auto;
+  margin: 20% auto;
 
   display: flex;
   flex-direction: column;
@@ -63,6 +51,10 @@ const LoginPageContainer = styled.div`
     font-weight: 700;
     font-size: 20px;
     line-height: 23.5px;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   p {
@@ -71,5 +63,13 @@ const LoginPageContainer = styled.div`
     font-weight: 700;
     font-size: 15px;
     line-height: 17.6px;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+      opacity: 50%;
+    }
   }
 `;
+
+export default LoginPageContainer;
