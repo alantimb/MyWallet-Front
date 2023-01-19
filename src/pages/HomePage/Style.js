@@ -6,7 +6,6 @@ const HomePageContainer = styled.div`
   margin: 5%;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-around; */
   align-items: center;
 `;
 

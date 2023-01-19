@@ -3,7 +3,12 @@ import { NewEntryPageContainer } from "./Style";
 export default function NewEntryPage() {
   return (
     <NewEntryPageContainer>
-      <div></div>
+      <h1>Nova Entrada</h1>
+      <form>
+        <input type="text" name="value" placeholder="Valor" />
+        <input type="text" name="description" placeholder="Descrição" />
+        <button>Salvar entrada</button>
+      </form>
     </NewEntryPageContainer>
   );
 }
