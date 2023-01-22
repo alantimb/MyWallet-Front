@@ -1,4 +1,4 @@
-import { NewEntryPageContainer } from "./Style";
+import { NewEntryPageContainer } from "./Styled";
 
 export default function NewEntryPage() {
   return (

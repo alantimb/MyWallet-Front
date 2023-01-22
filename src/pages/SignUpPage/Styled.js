@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const RegistrationPageContainer = styled.div`
+const SignUpPageContainer = styled.div`
   width: 100%;
   max-width: 400px;
   margin: 20% auto;
@@ -79,4 +79,4 @@ const RegistrationPageContainer = styled.div`
   }
 `;
 
-export default RegistrationPageContainer;
+export default SignUpPageContainer;

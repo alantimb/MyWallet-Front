@@ -3,7 +3,7 @@ import {
   RegisterContainer,
   HomeNavBar,
   HomeFooter,
-} from "./Style";
+} from "./Styled";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 

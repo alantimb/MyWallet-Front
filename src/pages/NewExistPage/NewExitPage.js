@@ -1,4 +1,4 @@
-import { NewExitPageContainer } from "./Style";
+import { NewExitPageContainer } from "./Styled";
 
 export default function NewExitPage() {
   return (
