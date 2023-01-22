@@ -41,6 +41,15 @@ const HomeNavBar = styled.div`
     font-weight: 700;
     margin-bottom: 26px;
   }
+
+  a {
+    color: #ffffff;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 50%;
+    }
+  }
 `;
 
 const HomeFooter = styled.div`
@@ -51,7 +60,7 @@ const HomeFooter = styled.div`
   justify-content: space-around;
   align-items: center;
 
-  div {
+  a {
     width: 157.5px;
     height: 115px;
     border-radius: 5px;
@@ -61,12 +70,18 @@ const HomeFooter = styled.div`
     font-size: 17px;
     line-height: 20px;
     font-weight: 700;
+    text-decoration: none;
 
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: flex-start;
     padding-left: 2%;
+
+    &:hover {
+      cursor: pointer;
+      opacity: 65%;
+    }
   }
 `;
 

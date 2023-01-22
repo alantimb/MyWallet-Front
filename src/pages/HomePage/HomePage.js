@@ -4,6 +4,7 @@ import {
   HomeNavBar,
   HomeFooter,
 } from "./Styled";
+import { Link } from "react-router-dom";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { AiOutlinePlusCircle, AiOutlineMinusCircle } from "react-icons/ai";
 
@@ -12,7 +13,9 @@ export default function HomePage() {
     <HomePageContainer>
       <HomeNavBar>
         <h1>Olá, Fulano</h1>
-        <RiLogoutBoxRLine size={30} />
+        <Link to="/">
+          <RiLogoutBoxRLine size={30} />
+        </Link>
       </HomeNavBar>
 
       <RegisterContainer>
@@ -23,19 +26,19 @@ export default function HomePage() {
       </RegisterContainer>
 
       <HomeFooter>
-        <div>
+        <Link to="/nova-entrada">
           <AiOutlinePlusCircle size={25} />
           Nova
           <br />
           entrada
-        </div>
+        </Link>
 
-        <div>
+        <Link to="/nova-saida">
           <AiOutlineMinusCircle size={25} />
           Nova
           <br />
           saída
-        </div>
+        </Link>
       </HomeFooter>
     </HomePageContainer>
   );

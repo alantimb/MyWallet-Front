@@ -1,4 +1,4 @@
-import LoginPageContainer from "./Styled";
+import { LoginPageContainer, StyledLink } from "./Styled";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -20,6 +20,7 @@ export default function LoginPage() {
     event.preventDefault();
     console.log(form.email); //OK
     console.log(form.password); // OK
+    navigate("/home");
   }
 
   return (
@@ -32,7 +33,7 @@ export default function LoginPage() {
           value={form.email}
           placeholder="E-mail"
           onChange={handleForm}
-          required
+          // required
         />
         <input
           type="password"
@@ -40,11 +41,12 @@ export default function LoginPage() {
           value={form.password}
           placeholder="Senha"
           onChange={handleForm}
-          required
+          // required
         />
         <button type="submit">Entrar</button>
-        <p>Primeira vez? Cadastre-se!</p>
       </form>
+
+      <StyledLink to="/cadastro">Primeira vez? Cadastre-se!</StyledLink>
     </LoginPageContainer>
   );
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SignUpPageContainer from "./Styled";
+import { SignUpPageContainer, StyledLink } from "./Styled";
 
 export default function SignUpPage() {
   const [form, setForm] = useState({
@@ -8,8 +8,6 @@ export default function SignUpPage() {
     email: "",
     password: "",
   });
-  // let password;
-  // let confirm_password;
   const navigate = useNavigate();
 
   function handleForm(event) {
@@ -19,19 +17,12 @@ export default function SignUpPage() {
     });
   }
 
-  // function confirmPassword(event) {
-  //   if (confirm_password.value === password.value) {
-  //     console.log("OK");
-  //   } else {
-  //     console.log("Senhas não conferem!");
-  //   }
-  // }
-
   function submitData(event) {
     event.preventDefault();
     console.log(form.email);
     console.log(form.password);
     console.log(form.name);
+    navigate("/");
   }
 
   return (
@@ -74,8 +65,9 @@ export default function SignUpPage() {
           required
         />
         <button type="submit">Cadastrar</button>
-        <p>Já tem uma conta? Entre agora!</p>
       </form>
+
+      <StyledLink to="/">Já tem uma conta? Entre agora!</StyledLink>
     </SignUpPageContainer>
   );
 }

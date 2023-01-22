@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const LoginPageContainer = styled.div`
   width: 100%;
@@ -79,4 +80,20 @@ const LoginPageContainer = styled.div`
   }
 `;
 
-export default LoginPageContainer;
+const StyledLink = styled(Link)`
+  color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 17.6px;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    opacity: 50%;
+    color: blue;
+  }
+`;
+
+export {LoginPageContainer, StyledLink};
