@@ -62,21 +62,6 @@ const LoginPageContainer = styled.div`
         cursor: pointer;
       }
     }
-
-    p {
-      color: #ffffff;
-      font-family: "Raleway", sans-serif;
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 17.6px;
-
-      &:hover {
-        cursor: pointer;
-        text-decoration: underline;
-        opacity: 50%;
-        color: blue;
-      }
-    }
   }
 `;
 
@@ -96,4 +81,4 @@ const StyledLink = styled(Link)`
   }
 `;
 
-export {LoginPageContainer, StyledLink};
+export { LoginPageContainer, StyledLink };

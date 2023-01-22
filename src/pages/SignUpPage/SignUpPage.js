@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import apiAuth from "../../services/apiAuth";
 import { SignUpPageContainer, StyledLink } from "./Styled";
 
 export default function SignUpPage() {
@@ -8,6 +9,7 @@ export default function SignUpPage() {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleForm(event) {
@@ -19,10 +21,18 @@ export default function SignUpPage() {
 
   function submitData(event) {
     event.preventDefault();
-    console.log(form.email);
-    console.log(form.password);
-    console.log(form.name);
-    navigate("/");
+    setIsLoading(true);
+
+    apiAuth
+      .signUp(form)
+      .then((res) => {
+        setIsLoading(false);
+        navigate("/");
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        alert(err.response.data.message);
+      });
   }
 
   return (
@@ -33,6 +43,7 @@ export default function SignUpPage() {
           type="text"
           name="name"
           value={form.name}
+          disabled={isLoading}
           placeholder="Nome"
           onChange={handleForm}
           required
@@ -41,6 +52,7 @@ export default function SignUpPage() {
           type="email"
           name="email"
           value={form.email}
+          disabled={isLoading}
           placeholder="E-mail"
           onChange={handleForm}
           required
@@ -49,7 +61,7 @@ export default function SignUpPage() {
           type="password"
           name="password"
           value={form.password}
-          // id="password"
+          disabled={isLoading}
           placeholder="Senha"
           onChange={handleForm}
           required
@@ -58,13 +70,14 @@ export default function SignUpPage() {
           type="password"
           name="password"
           value={form.password}
-          // id="confirm_password"
+          disabled={isLoading}
           placeholder="Confirme a senha"
-          // onKeyUp={confirmPassword}
           onChange={handleForm}
           required
         />
-        <button type="submit">Cadastrar</button>
+        <button type="submit" disabled={isLoading}>
+          Cadastrar
+        </button>
       </form>
 
       <StyledLink to="/">Já tem uma conta? Entre agora!</StyledLink>

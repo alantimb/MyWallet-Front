@@ -1,12 +1,17 @@
 import { LoginPageContainer, StyledLink } from "./Styled";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import apiAuth from "../../services/apiAuth";
+import { UserContext } from "../../contexts/UserContext";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function LoginPage() {
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
+  const { setUser } = useContext(UserContext);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   function handleForm(event) {
@@ -18,8 +23,19 @@ export default function LoginPage() {
 
   function submitData(event) {
     event.preventDefault();
-    console.log(form.email); //OK
-    console.log(form.password); // OK
+    setIsLoading(true);
+
+    apiAuth
+      .login(form)
+      .then((res) => {
+        setIsLoading(false);
+        const { id, name, token } = res.data;
+        setUser({ id, name, token });
+      })
+      .catch((err) => {
+        setIsLoading(false);
+        alert(err.response.data.message);
+      });
     navigate("/home");
   }
 
@@ -31,19 +47,27 @@ export default function LoginPage() {
           type="email"
           name="email"
           value={form.email}
+          disabled={isLoading}
           placeholder="E-mail"
           onChange={handleForm}
-          // required
+          required
         />
         <input
           type="password"
           name="password"
           value={form.password}
+          disabled={isLoading}
           placeholder="Senha"
           onChange={handleForm}
-          // required
+          required
         />
-        <button type="submit">Entrar</button>
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? (
+            <ThreeDots width={50} height={30} color="#FFFFFF" />
+          ) : (
+            "Entrar"
+          )}
+        </button>
       </form>
 
       <StyledLink to="/cadastro">Primeira vez? Cadastre-se!</StyledLink>
