@@ -13,9 +13,21 @@ export default function NewEntryPage() {
     <NewEntryPageContainer>
       <h1>Nova Entrada</h1>
       <form onSubmit={handleEntry}>
-        <input type="text" name="value" placeholder="Valor" />
-        <input type="text" name="description" placeholder="Descrição" />
-        <button>Salvar entrada</button>
+        <input
+          data-test="registry-amount-input"
+          type="text"
+          name="value"
+          placeholder="Valor"
+          required
+        />
+        <input
+          data-test="registry-name-input"
+          type="text"
+          name="description"
+          placeholder="Descrição"
+          required
+        />
+        <button data-test="registry-save">Salvar entrada</button>
       </form>
     </NewEntryPageContainer>
   );

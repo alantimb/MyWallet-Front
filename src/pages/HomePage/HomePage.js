@@ -20,7 +20,6 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false); // MUDAR APÓS ATUALIZAR O BACKEND
   const [records, setRecords] = useState([4]);
 
-
   function getRecordsList() {
     apiRecords
       .getRecords(userToken)
@@ -37,9 +36,9 @@ export default function HomePage() {
   return (
     <HomePageContainer>
       <HomeNavBar>
-        <h1>Olá, {userName} </h1>
+        <h1 data-test="user-name">Olá, {userName} </h1>
         <Link to="/">
-          <RiLogoutBoxRLine size={30} />
+          <RiLogoutBoxRLine size={30} data-test="logout" />
         </Link>
       </HomeNavBar>
 
@@ -61,15 +60,15 @@ export default function HomePage() {
         ) : (
           <RecordsList>
             <section>
-              <span>30/11</span>
-              <li>
+              <span data-test="registry-amount">30/11</span>
+              <li data-test="registry-name">
                 OI
                 <RecordValue color={"green"}>500,00</RecordValue>
               </li>
             </section>
             <section>
-              <span>27/04</span>
-              <li>
+              <span data-test="registry-amount">27/04</span>
+              <li data-test="registry-name">
                 arroz
                 <RecordValue color={"red"}>47,00</RecordValue>
               </li>
@@ -79,14 +78,14 @@ export default function HomePage() {
       </RecordsContainer>
 
       <HomeFooter>
-        <Link to="/nova-entrada">
+        <Link to="/nova-entrada" data-test="new-income">
           <AiOutlinePlusCircle size={25} />
           Nova
           <br />
           entrada
         </Link>
 
-        <Link to="/nova-saida">
+        <Link to="/nova-saida" data-test="new-expense">
           <AiOutlineMinusCircle size={25} />
           Nova
           <br />

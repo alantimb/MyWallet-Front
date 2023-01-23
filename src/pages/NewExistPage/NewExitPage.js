@@ -13,9 +13,21 @@ export default function NewExitPage() {
     <NewExitPageContainer>
       <h1>Nova saída</h1>
       <form onSubmit={handleExit}>
-        <input type="text" name="value" placeholder="Valor" />
-        <input type="text" name="description" placeholder="Descrição" />
-        <button>Salvar saída</button>
+        <input
+          data-test="registry-amount-input"
+          type="text"
+          name="value"
+          placeholder="Valor"
+          required
+        />
+        <input
+          data-test="registry-name-input"
+          type="text"
+          name="description"
+          placeholder="Descrição"
+          required
+        />
+        <button data-test="registry-save">Salvar saída</button>
       </form>
     </NewExitPageContainer>
   );

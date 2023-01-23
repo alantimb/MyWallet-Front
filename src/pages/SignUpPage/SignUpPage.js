@@ -52,6 +52,7 @@ export default function SignUpPage() {
       <h1>MyWallet</h1>
       <form onSubmit={submitData}>
         <input
+          data-test="name"
           type="text"
           name="name"
           value={form.name}
@@ -61,6 +62,7 @@ export default function SignUpPage() {
           required
         />
         <input
+          data-test="email"
           type="email"
           name="email"
           value={form.email}
@@ -70,6 +72,7 @@ export default function SignUpPage() {
           required
         />
         <input
+          data-test="password"
           type="password"
           name="password"
           value={form.password}
@@ -79,6 +82,7 @@ export default function SignUpPage() {
           required
         />
         <input
+          data-test="conf-password"
           type="password"
           name="password"
           value={confirmPassword}
@@ -87,7 +91,7 @@ export default function SignUpPage() {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button type="submit" disabled={isLoading}>
+        <button data-test="sign-up-submit" type="submit" disabled={isLoading}>
           {isLoading ? (
             <ThreeDots
               width={80}

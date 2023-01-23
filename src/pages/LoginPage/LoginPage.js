@@ -31,7 +31,7 @@ export default function LoginPage() {
         setIsLoading(false);
         const { name, token } = res.data;
         setUserName(name);
-        setUserToken(token)
+        setUserToken(token);
         navigate("/home");
       })
       .catch((err) => {
@@ -45,6 +45,7 @@ export default function LoginPage() {
       <h1>MyWallet</h1>
       <form onSubmit={submitData}>
         <input
+          data-test="email"
           type="email"
           name="email"
           value={form.email}
@@ -54,6 +55,7 @@ export default function LoginPage() {
           required
         />
         <input
+          data-test="password"
           type="password"
           name="password"
           value={form.password}
@@ -62,7 +64,7 @@ export default function LoginPage() {
           onChange={handleForm}
           required
         />
-        <button type="submit" disabled={isLoading}>
+        <button data-test="sign-in-submit" type="submit" disabled={isLoading}>
           {isLoading ? (
             <ThreeDots
               width={80}
