@@ -48,6 +48,10 @@ const LoginPageContainer = styled.div`
       align-items: center;
       margin-bottom: 35px;
 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       color: #ffffff;
       background-color: #a328d6;
       border: none;

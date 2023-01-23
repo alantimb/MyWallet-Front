@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import apiAuth from "../../services/apiAuth";
 import { SignUpPageContainer, StyledLink } from "./Styled";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function SignUpPage() {
   const [form, setForm] = useState({
@@ -76,7 +77,16 @@ export default function SignUpPage() {
           required
         />
         <button type="submit" disabled={isLoading}>
-          Cadastrar
+          {isLoading ? (
+            <ThreeDots
+              width={80}
+              height={40}
+              color={"#FFFFFF"}
+              wrapperStyle={{ "background-color": "#a328d6" }}
+            />
+          ) : (
+            "Cadastrar"
+          )}
         </button>
       </form>
 

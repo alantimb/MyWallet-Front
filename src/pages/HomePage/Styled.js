@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const HomePageContainer = styled.div`
   width: auto;
@@ -9,7 +10,14 @@ const HomePageContainer = styled.div`
   align-items: center;
 `;
 
-const RegisterContainer = styled.div`
+const RecordsContainer = styled.div`
+  width: 330px;
+  height: 445px;
+  background-color: #ffffff;
+  border-radius: 5px;
+`;
+
+const NoRecordsContainer = styled.div`
   width: 332.5px;
   height: 445px;
   background-color: #ffffff;
@@ -24,6 +32,52 @@ const RegisterContainer = styled.div`
     background-color: #ffffff;
     text-align: center;
   }
+`;
+
+const RecordsList = styled.ul`
+  width: 332.5px;
+  height: 445px;
+  background-color: #ffffff;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 18.78px;
+  font-weight: 400;
+  border-radius: 5px;
+  padding: 10% 5%;
+
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  /* align-items: center; */
+
+  section {
+    background-color: #ffffff;
+    color: #000000;
+
+    display: flex;
+    flex-direction: row;
+  }
+
+  section li {
+    background-color: #ffffff;
+    color: #000000;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+  }
+
+  section span {
+    background-color: #ffffff;
+    color: #c6c6c6;
+    margin-right: 7.5px;
+  }
+`;
+
+const RecordValue = styled.div`
+  background-color: #ffffff;
+  color: ${(props) => (props.color === "green" ? "#03ac00" : "#C70000")};
 `;
 
 const HomeNavBar = styled.div`
@@ -85,4 +139,12 @@ const HomeFooter = styled.div`
   }
 `;
 
-export { HomePageContainer, RegisterContainer, HomeNavBar, HomeFooter };
+export {
+  HomePageContainer,
+  RecordsContainer,
+  RecordsList,
+  NoRecordsContainer,
+  RecordValue,
+  HomeNavBar,
+  HomeFooter,
+};

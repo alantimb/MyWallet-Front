@@ -31,6 +31,8 @@ export default function LoginPage() {
         setIsLoading(false);
         const { id, name, token } = res.data;
         setUser({ id, name, token });
+        localStorage.setItem("user", JSON.stringify({ id, name, token }));
+        navigate("/home");
       })
       .catch((err) => {
         setIsLoading(false);
@@ -63,7 +65,12 @@ export default function LoginPage() {
         />
         <button type="submit" disabled={isLoading}>
           {isLoading ? (
-            <ThreeDots width={50} height={30} color="#FFFFFF" />
+            <ThreeDots
+              width={80}
+              height={40}
+              color={"#FFFFFF"}
+              wrapperStyle={{"background-color": "#a328d6"}}
+            />
           ) : (
             "Entrar"
           )}
