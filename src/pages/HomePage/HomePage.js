@@ -16,29 +16,28 @@ import apiRecords from "../../services/apiRecords";
 import { ThreeDots } from "react-loader-spinner";
 
 export default function HomePage() {
-  const { user } = useContext(UserContext);
+  const { userName, userToken } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false); // MUDAR APÓS ATUALIZAR O BACKEND
   const [records, setRecords] = useState([4]);
 
-  useEffect(() => {}, []);
 
   function getRecordsList() {
     apiRecords
-      .getRecords(user.token)
+      .getRecords(userToken)
       .then((res) => {
         setIsLoading(false);
         setRecords(res.data);
       })
       .catch((err) => {
         setIsLoading(false);
-        alert(err.response.data.message);
+        alert(err.response.data);
       });
   }
 
   return (
     <HomePageContainer>
       <HomeNavBar>
-        <h1>Olá, {user.name}</h1>
+        <h1>Olá, {userName} </h1>
         <Link to="/">
           <RiLogoutBoxRLine size={30} />
         </Link>

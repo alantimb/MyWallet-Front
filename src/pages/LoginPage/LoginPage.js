@@ -10,7 +10,7 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
-  const { setUser } = useContext(UserContext);
+  const { setUserName, setUserToken } = useContext(UserContext);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -29,16 +29,15 @@ export default function LoginPage() {
       .login(form)
       .then((res) => {
         setIsLoading(false);
-        console.log(res.data);
         const { name, token } = res.data;
-        setUser({ name, token });
+        setUserName(name);
+        setUserToken(token)
         navigate("/home");
       })
       .catch((err) => {
         setIsLoading(false);
-        console.log(err.response.data.message);
+        console.log(err.response.data);
       });
-    navigate("/home");
   }
 
   return (
