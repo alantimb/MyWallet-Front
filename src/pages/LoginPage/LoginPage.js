@@ -29,14 +29,14 @@ export default function LoginPage() {
       .login(form)
       .then((res) => {
         setIsLoading(false);
-        const { id, name, token } = res.data;
-        setUser({ id, name, token });
-        localStorage.setItem("user", JSON.stringify({ id, name, token }));
+        console.log(res.data);
+        const { name, token } = res.data;
+        setUser({ name, token });
         navigate("/home");
       })
       .catch((err) => {
         setIsLoading(false);
-        alert(err.response.data.message);
+        console.log(err.response.data.message);
       });
     navigate("/home");
   }
@@ -69,7 +69,7 @@ export default function LoginPage() {
               width={80}
               height={40}
               color={"#FFFFFF"}
-              wrapperStyle={{"background-color": "#a328d6"}}
+              wrapperStyle={{ "background-color": "#a328d6" }}
             />
           ) : (
             "Entrar"

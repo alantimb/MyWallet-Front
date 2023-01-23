@@ -2,12 +2,12 @@ import axios from "axios";
 import env from "react-dotenv";
 
 function login(body) {
-  const promise = axios.post(`${env.REACT_APP_API_URL}/sign-in`, body);
+  const promise = axios.post(`${process.env.REACT_APP_API_URL}/sign-in`, body);
   return promise;
 }
 
 function signUp(body) {
-  const promise = axios.post(`${env.REACT_APP_API_URL}/sign-up`, body);
+  const promise = axios.post(`${process.env.REACT_APP_API_URL}/sign-up`, body);
   return promise;
 }
 

@@ -10,6 +10,7 @@ export default function SignUpPage() {
     email: "",
     password: "",
   });
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -23,6 +24,16 @@ export default function SignUpPage() {
   function submitData(event) {
     event.preventDefault();
     setIsLoading(true);
+    if (form.password !== confirmPassword) {
+      setForm({
+        name: "",
+        email: "",
+        password: "",
+      });
+      setConfirmPassword("");
+      setIsLoading(false);
+      return alert("Senhas diferentes!");
+    }
 
     apiAuth
       .signUp(form)
@@ -32,7 +43,7 @@ export default function SignUpPage() {
       })
       .catch((err) => {
         setIsLoading(false);
-        alert(err.response.data.message);
+        console.log(err.response.data.message);
       });
   }
 
@@ -70,10 +81,10 @@ export default function SignUpPage() {
         <input
           type="password"
           name="password"
-          value={form.password}
+          value={confirmPassword}
           disabled={isLoading}
           placeholder="Confirme a senha"
-          onChange={handleForm}
+          onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
         <button type="submit" disabled={isLoading}>
